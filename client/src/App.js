@@ -1,24 +1,34 @@
 import React from 'react';
-import logo from './logo.svg';
+
+import { Router } from '@reach/router';
+import 'bootswatch/dist/solar/bootstrap.min.css';
 import './App.css';
+import Nav from './components/Nav';
+import NewAuthor from './components/NewAuthor';
+import EditAuthor from './components/EditAuthor'
+import Home from './components/Home';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <section className="hero is-info">
+        <div className="hero-body">
+          <div className="container" >
+            <h1 className="title">
+              Favorite Authors
+            </h1>
+            <h2 className="subtitle">
+              Authors
+            </h2>
+          </div>
+        </div>
+      </section>
+      <Nav />
+      <Router>
+        <Home path="/"/>
+        <NewAuthor path="/new" />
+        <EditAuthor path="/edit/:_id" />
+      </Router>
     </div>
   );
 }
